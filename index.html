@@ -45,7 +45,7 @@
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-image">
-                    <img src="profile.jpg" alt="Your Name">
+                    <img src="profile.jpg" alt="Mahadi Hasan Alif">
                 </div>
                 <div class="about-text">
                     <p>I am an Electronics Engineering student passionate about designing and implementing embedded systems, electronics projects, and exploring machine learning applications. My expertise includes working with microcontrollers, sensor integration, PCB design, and developing AI solutions using frameworks like PyTorch and OpenCV.</p>
@@ -61,7 +61,7 @@
                         </div>
                         <div class="detail">
                             <i class="fas fa-envelope"></i>
-                            <span>mahadihasan.eca@gmail.com.com</span>
+                            <span>mahadihasan.eca@gmail.com</span>
                         </div>
                     </div>
                     <div class="social-links">
@@ -86,85 +86,107 @@
                 <button class="filter-btn" data-filter="robotics">Robotics</button>
             </div>
             <div class="projects-grid">
+
                 <!-- Project 1 -->
-                <div class="project-card" data-category="electronics embedded">
+                <div class="project-card" data-category="electronics embedded ml">
                     <div class="project-image">
-                        <img src="placeholder-project1.jpg" alt="Smart Home Automation System">
+                        <img src="placeholder-biomedical.jpg" alt="Biomedical Signal Processing Internship">
                     </div>
                     <div class="project-content">
-                        <h3>Smart Home Automation System</h3>
-                        <p>An IoT-based home automation system using ESP32 microcontrollers, custom PCB design, and a mobile app interface.</p>
-                        <div class="project-tags">
-                            <span>ESP32</span>
-                            <span>PCB Design</span>
-                            <span>IoT</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/yourusername/smart-home-project" target="_blank" class="btn small">GitHub</a>
-                            <a href="#" class="btn small secondary">Demo</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="project-card" data-category="ml robotics">
-                    <div class="project-image">
-                        <img src="placeholder-project2.jpg" alt="Object Detection Robot">
-                    </div>
-                    <div class="project-content">
-                        <h3>Object Detection Robot</h3>
-                        <p>A mobile robot platform built with ROS2 Humble that uses computer vision with OpenCV and PyTorch for real-time object detection and navigation.</p>
-                        <div class="project-tags">
-                            <span>ROS2</span>
-                            <span>OpenCV</span>
-                            <span>PyTorch</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/yourusername/object-detection-robot" target="_blank" class="btn small">GitHub</a>
-                            <a href="#" class="btn small secondary">Demo</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="project-card" data-category="embedded electronics">
-                    <div class="project-image">
-                        <img src="placeholder-project3.jpg" alt="Digital Signal Processing Board">
-                    </div>
-                    <div class="project-content">
-                        <h3>Digital Signal Processing Board</h3>
-                        <p>A custom DSP board with STM32 microcontroller for real-time audio processing, featuring analog filtering and digital effects.</p>
+                        <h3>Biomedical Signal Processing Internship</h3>
+                        <p>Designing a complete pulse oximeter system—analog front-end, embedded firmware on STM32, real-time PPG acquisition, digital filtering, and SpO<sub>2</sub> computation using the Beer–Lambert law.</p>
                         <div class="project-tags">
                             <span>STM32</span>
-                            <span>DSP</span>
-                            <span>PCB Design</span>
+                            <span>FreeRTOS</span>
+                            <span>MATLAB</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/yourusername/dsp-board" target="_blank" class="btn small">GitHub</a>
-                            <a href="#" class="btn small secondary">Schematic</a>
+                            <a href="https://github.com/MahadiAlif/biomedical-signal-processing" target="_blank" class="btn small">GitHub</a>
+                            <a href="#" class="btn small secondary">Website</a>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Project 4 -->
-                <div class="project-card" data-category="ml">
+
+                <!-- Project 2 -->
+                <div class="project-card" data-category="embedded robotics">
                     <div class="project-image">
-                        <img src="placeholder-project4.jpg" alt="Power Consumption Predictor">
+                        <img src="placeholder-robot-platform.jpg" alt="Autonomous Robotic Platform">
                     </div>
                     <div class="project-content">
-                        <h3>Power Consumption Predictor</h3>
-                        <p>A machine learning system using PyTorch to predict power consumption patterns for energy optimization in smart buildings.</p>
+                        <h3>Autonomous Robotic Platform</h3>
+                        <p>Built STM32F4+FreeRTOS control system, interfaced IMU, motor drivers (CAN, I2C, UART), developed ROS 2 nodes for sensor fusion, achieving 2 cm positioning accuracy in dynamic settings.</p>
                         <div class="project-tags">
-                            <span>PyTorch</span>
-                            <span>Time Series</span>
-                            <span>Energy</span>
+                            <span>STM32F4</span>
+                            <span>ROS 2</span>
+                            <span>CAN Bus</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/yourusername/power-predictor" target="_blank" class="btn small">GitHub</a>
-                            <a href="#" class="btn small secondary">Paper</a>
+                            <a href="https://github.com/MahadiAlif/robotic-platform" target="_blank" class="btn small">GitHub</a>
+                            <a href="#" class="btn small secondary">Website</a>
                         </div>
                     </div>
                 </div>
+
+                <!-- Project 3 -->
+                <div class="project-card" data-category="electronics">
+                    <div class="project-image">
+                        <img src="placeholder-filter-design.jpg" alt="Digital Filter Design">
+                    </div>
+                    <div class="project-content">
+                        <h3>Digital Filter Design</h3>
+                        <p>Designed Butterworth, Chebyshev, and FIR filters in MATLAB with poles/zeros visualization. Applied to audio signals, validated stability, phase distortion, and frequency response via FFT.</p>
+                        <div class="project-tags">
+                            <span>MATLAB</span>
+                            <span>DSP</span>
+                            <span>Filter Design</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/MahadiAlif/digital-filter-design" target="_blank" class="btn small">GitHub</a>
+                            <a href="#" class="btn small secondary">Website</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card" data-category="embedded electronics">
+                    <div class="project-image">
+                        <img src="placeholder-electric-boat.jpg" alt="Electric Boat Control System">
+                    </div>
+                    <div class="project-content">
+                        <h3>Electric Boat Control System</h3>
+                        <p>Implemented Arduino GIGA R1 firmware for sensor monitoring (temperature, current, voltage), CAN-based motor control, and ESP32‐based HTTP telemetry over WiFi.</p>
+                        <div class="project-tags">
+                            <span>Arduino</span>
+                            <span>ESP32</span>
+                            <span>CAN Bus</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/MahadiAlif/electric-boat-control" target="_blank" class="btn small">GitHub</a>
+                            <a href="#" class="btn small secondary">Website</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card" data-category="ml robotics">
+                    <div class="project-image">
+                        <img src="placeholder-cubetech.jpg" alt="CubeTech Hackathon - Space Systems Challenge">
+                    </div>
+                    <div class="project-content">
+                        <h3>CubeTech Hackathon – Space Systems</h3>
+                        <p>Built Python control and vision pipeline on Raspberry Pi Zero 2W, IMU-based timing, image segmentation for object detection under energy constraints, optimized ML for edge deployment.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Raspberry Pi</span>
+                            <span>Computer Vision</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/MahadiAlif/cubetech-hackathon" target="_blank" class="btn small">GitHub</a>
+                            <a href="#" class="btn small secondary">Website</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -174,6 +196,7 @@
         <div class="container">
             <h2 class="section-title">Technical Skills</h2>
             <div class="skills-container">
+                <!-- Electronics -->
                 <div class="skill-category">
                     <h3>Electronics</h3>
                     <div class="skill-list">
@@ -197,7 +220,7 @@
                         </div>
                     </div>
                 </div>
-                
+                <!-- Embedded Systems -->
                 <div class="skill-category">
                     <h3>Embedded Systems</h3>
                     <div class="skill-list">
@@ -221,7 +244,7 @@
                         </div>
                     </div>
                 </div>
-                
+                <!-- Programming -->
                 <div class="skill-category">
                     <h3>Programming</h3>
                     <div class="skill-list">
@@ -245,7 +268,7 @@
                         </div>
                     </div>
                 </div>
-                
+                <!-- ML & Robotics -->
                 <div class="skill-category">
                     <h3>Machine Learning & Robotics</h3>
                     <div class="skill-list">
@@ -283,29 +306,27 @@
                     <div class="timeline-content">
                         <h3>B.S. in Electronics Engineering</h3>
                         <p class="timeline-date">2020 - Present</p>
-                        <p class="timeline-institution">Your University Name</p>
-                        <p>Focusing on embedded systems design, control systems, and signal processing with a minor in computer science.</p>
+                        <p class="timeline-institution">Polytechnic University of Turin</p>
+                        <p>Specialized in Embedded Systems, Sensor Fusion, and Signal Processing.</p>
                         <p>Relevant Coursework: Digital Signal Processing, Microcontroller Programming, PCB Design, Control Systems, Machine Learning.</p>
                     </div>
                 </div>
-                
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <h3>Certification in Machine Learning</h3>
                         <p class="timeline-date">2022</p>
-                        <p class="timeline-institution">Online Platform (e.g., Coursera, edX)</p>
-                        <p>Completed comprehensive training in machine learning algorithms, deep learning, and computer vision applications.</p>
+                        <p class="timeline-institution">Coursera</p>
+                        <p>Deep learning and computer vision applications with PyTorch and OpenCV.</p>
                     </div>
                 </div>
-                
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <h3>ROS2 Development Workshop</h3>
                         <p class="timeline-date">2023</p>
-                        <p class="timeline-institution">Workshop Provider</p>
-                        <p>Intensive hands-on training in ROS2 Humble, covering topics such as nodes, services, actions, and navigation stack implementation.</p>
+                        <p class="timeline-institution">Linux Foundation</p>
+                        <p>Hands-on ROS2 Humble: nodes, services, actions, navigation stack.</p>
                     </div>
                 </div>
             </div>
@@ -343,7 +364,7 @@
                         <i class="fab fa-linkedin"></i>
                         <div>
                             <h3>LinkedIn</h3>
-                            <p><a href="https://www.linkedin.com/in/mahadi-hasan-alif/" target="_blank">linkedin.com/in/Mahadi-Hasan-Alif</a></p>
+                            <p><a href="https://linkedin.com/in/mahadi-hasan-alif" target="_blank">linkedin.com/in/mahadi-hasan-alif</a></p>
                         </div>
                     </div>
                 </div>
@@ -377,8 +398,8 @@
         <div class="container">
             <p>&copy; 2025 Mahadi Hasan Alif. All Rights Reserved.</p>
             <div class="social-links">
-                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/MahadiAlif" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/mahadi-hasan-alif" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
