@@ -1,362 +1,445 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Mahadi Hasan Alif – Electronics & Embedded Systems Engineer</title>
-
-  <!-- Font Awesome for icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-  >
-
-  <style>
-    /* ───── Reset & Base Styles ───── */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-    a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; display: block; }
-
-    /* ───── NAVIGATION ───── */
-    nav {
-      position: fixed; top: 0; left: 0; width: 100%;
-      background: #fff; padding: 10px 20px;
-      display: flex; align-items: center; justify-content: space-between;
-      z-index: 1000;
-      transition: box-shadow .3s;
-    }
-    nav .logo { font-size: 1.2em; font-weight: bold; }
-    .nav-links {
-      list-style: none; display: flex;
-    }
-    .nav-links li { margin-left: 20px; }
-    .nav-links li a { padding: 5px; color: #333; }
-    .burger {
-      display: none; cursor: pointer;
-      flex-direction: column; justify-content: space-between;
-      width: 25px; height: 21px;
-    }
-    .burger div {
-      width: 100%; height: 3px; background: #333;
-      transition: all .3s ease;
-    }
-    .toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
-    .toggle .line2 { opacity: 0; }
-    .toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
-
-    /* mobile nav */
-    @media (max-width: 768px) {
-      .nav-links {
-        position: absolute; right: 0; top: 0; height: 100vh;
-        flex-direction: column; align-items: center;
-        width: 50%; background: #fff;
-        transform: translateX(100%);
-        transition: transform .5s ease;
-      }
-      .nav-links.nav-active { transform: translateX(0); }
-      .nav-links li { opacity: 0; }
-      .burger { display: flex; }
-    }
-
-    @keyframes navLinkFade {
-      from { opacity: 0; transform: translateX(50px); }
-      to   { opacity: 1; transform: translateX(0); }
-    }
-
-    /* ───── TYPEWRITER ───── */
-    .typed-text {
-      display: inline-block; white-space: nowrap; overflow: hidden;
-    }
-    .typed-text::after {
-      content: '';
-      border-right: .1em solid currentColor;
-      animation: blink .7s step-end infinite;
-    }
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
-
-    /* ───── SECTIONS ───── */
-    section { padding: 80px 20px; }
-    .container { max-width: 1200px; margin: 0 auto; }
-
-    .section-title {
-      text-align: center; font-size: 2em; margin-bottom: 40px;
-    }
-
-    /* Hero */
-    .hero {
-      height: 100vh;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center;
-      padding-top: 60px; /* allow for fixed nav */
-    }
-    .hero-content h1 { font-size: 2.5em; margin-bottom: 20px; }
-    .hero-content h2 { font-size: 1.5em; margin-bottom: 20px; color: #555; }
-    .hero-content p { max-width: 600px; margin: 0 auto 20px; }
-    .hero-buttons .btn {
-      display: inline-block; padding: 10px 20px; margin: 5px;
-      border-radius: 4px; cursor: pointer;
-    }
-    .btn.primary { background: #76c7c0; color: #fff; }
-    .btn.secondary { background: #e0e0e0; color: #333; }
-    .btn.small { padding: 5px 10px; font-size: .9em; }
-
-    /* About */
-    .about-content {
-      display: flex; flex-wrap: wrap; align-items: center;
-    }
-    .about-image { flex: 1 1 300px; text-align: center; }
-    .about-image img { border-radius: 8px; }
-    .about-text { flex: 2 1 400px; padding: 20px; }
-    .about-details {
-      display: flex; flex-wrap: wrap; margin: 20px 0;
-    }
-    .about-details .detail {
-      display: flex; align-items: center; margin-right: 20px; margin-bottom: 10px;
-    }
-    .about-details i { margin-right: 8px; color: #76c7c0; }
-    .social-links a { margin-right: 10px; font-size: 1.2em; color: #333; }
-
-    /* Projects */
-    .project-filters { text-align: center; margin-bottom: 20px; }
-    .filter-btn {
-      padding: 8px 16px; margin: 0 5px 10px;
-      border: none; background: #e0e0e0; border-radius: 4px;
-      cursor: pointer;
-    }
-    .filter-btn.active { background: #76c7c0; color: #fff; }
-    .projects-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-      gap: 20px;
-    }
-    .project-card {
-      background: #fff; border-radius: 8px; overflow: hidden;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .project-image img { width: 100%; }
-    .project-content { padding: 20px; }
-    .project-tags span {
-      display: inline-block; background: #e0e0e0; padding: 4px 8px;
-      margin: 2px; border-radius: 4px; font-size: .8em;
-    }
-    .project-links a { margin-right: 10px; }
-
-    /* Skills */
-    .skills-list {
-      display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-      gap: 20px;
-    }
-    .skill { margin-bottom: 15px; }
-    .skill-name { margin-bottom: 5px; font-weight: bold; }
-    .skill-bar {
-      background: #e0e0e0; height: 10px; border-radius: 5px; overflow: hidden;
-    }
-    .skill-level { height: 100%; background: #76c7c0; }
-
-    /* Timeline (Leadership & Education) */
-    .timeline { position: relative; padding-left: 30px; margin-bottom: 40px; }
-    .timeline::before {
-      content: ''; position: absolute; left: 15px; top: 0; bottom: 0;
-      width: 2px; background: #e0e0e0;
-    }
-    .timeline-item {
-      position: relative; margin-bottom: 20px; padding-bottom: 10px;
-    }
-    .timeline-item::before {
-      content: ''; position: absolute; left: -3px; top: 0;
-      width: 10px; height: 10px; background: #76c7c0; border-radius: 50%;
-    }
-    .timeline-item h3 { margin-bottom: 5px; }
-    .timeline-item span {
-      display: block; font-size: .9em; color: #555; margin-bottom: 5px;
-    }
-    .timeline-item p { margin-bottom: 0; }
-
-    /* Contact */
-    .contact-form { max-width: 600px; margin: 0 auto; }
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%; padding: 10px; margin-bottom: 10px;
-      border: 1px solid #ccc; border-radius: 4px;
-    }
-    .contact-form button {
-      padding: 10px 20px; border: none; background: #76c7c0;
-      color: #fff; border-radius: 4px; cursor: pointer;
-    }
-
-    /* Footer */
-    footer {
-      background: #f8f8f8; text-align: center; padding: 20px 0;
-      margin-top: 40px;
-    }
-    footer .social-links a {
-      margin: 0 10px; font-size: 1.2em; color: #333;
-    }
-
-    /* Responsive tweaks */
-    @media (max-width: 768px) {
-      .about-content { flex-direction: column; }
-      .skills-list { grid-template-columns: 1fr; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahadi Hasan Alif - Electronics & Embedded Systems Engineer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-
 <body>
-  <!-- NAVIGATION -->
-  <nav>
-    <div class="logo">Mahadi Hasan Alif</div>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#leadership">Leadership</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="burger">
-      <div class="line1"></div>
-      <div class="line2"></div>
-      <div class="line3"></div>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h1>Hello, I'm <span id="demo" class="typed-text"></span></h1>
-      <h2>Electronics Engineer | Embedded Systems Developer | Signal Processing Specialist</h2>
-      <p>Building innovative solutions with electronics, embedded systems, and advanced signal-processing techniques.</p>
-      <div class="hero-buttons">
-        <a href="#projects" class="btn primary">View Projects</a>
-        <a href="#contact"  class="btn secondary">Contact Me</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="about">
-    <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <div class="about-content">
-        <div class="about-image">
-          <img src="profile.jpg" alt="Mahadi Hasan Alif">
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Mahadi Hasan Alif</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#leadership">Leadership</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
         </div>
-        <div class="about-text">
-          <p>I am passionate about designing and implementing embedded systems, electronics projects, and exploring machine learning applications. My expertise includes microcontrollers, sensor integration, PCB design, and AI solutions using PyTorch and OpenCV.</p>
-          <p>With experience in ROS2 Humble, I develop robotic applications that integrate sensing, control, and machine learning. I enjoy solving real-world problems by combining hardware and software solutions.</p>
+    </nav>
 
-          <div class="about-details">
-            <div class="detail"><i class="fas fa-graduation-cap"></i><span>Electronics Engineering Student</span></div>
-            <div class="detail"><i class="fas fa-map-marker-alt"></i><span>Turin, Italy</span></div>
-            <div class="detail"><i class="fas fa-envelope"></i><span>mahadihasan.eca@gmail.com</span></div>
-          </div>
-          <div class="social-links">
-            <a href="https://github.com/MahadiAlif" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/mahadi-hasan-alif" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" class="projects">
-    <div class="container">
-      <h2 class="section-title">My Projects</h2>
-      <div class="project-filters">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="electronics">Electronics</button>
-        <button class="filter-btn" data-filter="embedded">Embedded</button>
-        <button class="filter-btn" data-filter="ml">Machine Learning</button>
-        <button class="filter-btn" data-filter="robotics">Robotics</button>
-      </div>
-      <div class="projects-grid">
-        <div class="project-card" data-category="electronics embedded ml">
-          <div class="project-image"><img src="placeholder.jpg" alt="Project 1"></div>
-          <div class="project-content">
-            <h3>Biomedical Signal Processing</h3>
-            <p>Analog front-end, embedded firmware on STM32, real-time PPG acquisition, digital filtering, SpO₂ computation using Beer–Lambert law.</p>
-            <div class="project-tags"><span>STM32</span><span>FreeRTOS</span><span>MATLAB</span></div>
-            <div class="project-links">
-              <a href="#" class="btn small">GitHub</a>
-              <a href="#" class="btn small secondary">Website</a>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hello, I'm <span class="highlight">Mahadi Hasan Alif</span></h1>
+            <h2>Electronics Engineer | Embedded Systems Developer | ML Enthusiast</h2>
+            <p>Building innovative solutions with electronics, embedded systems, and machine learning technologies</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn primary">View Projects</a>
+                <a href="#contact" class="btn secondary">Contact Me</a>
             </div>
-          </div>
         </div>
-        <!-- add more .project-card as needed -->
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SKILLS -->
-  <section id="skills" class="skills">
-    <div class="container">
-      <h2 class="section-title">Skills</h2>
-      <div class="skills-list">
-        <div class="skill">
-          <div class="skill-name">C / C++</div>
-          <div class="skill-bar"><div class="skill-level" style="width:90%;"></div></div>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="profile.jpg" alt="Mahadi Hasan Alif">
+                </div>
+                <div class="about-text">
+                    <p>I am an Electronics Engineering student passionate about designing and implementing embedded systems, electronics projects, and exploring machine learning applications. My expertise includes working with microcontrollers, sensor integration, PCB design, and developing AI solutions using frameworks like PyTorch and OpenCV.</p>
+                    <p>With experience in ROS2 Humble, I develop robotic applications that integrate sensing, control, and machine learning. I enjoy solving real-world problems by combining hardware and software solutions.</p>
+                    <div class="about-details">
+                        <div class="detail">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Electronics Engineering Student</span>
+                        </div>
+                        <div class="detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Turin, Italy</span>
+                        </div>
+                        <div class="detail">
+                            <i class="fas fa-envelope"></i>
+                            <span>mahadihasan.eca@gmail.com</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/MahadiAlif" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/mahadi-hasan-alif" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="skill">
-          <div class="skill-name">Embedded Systems</div>
-          <div class="skill-bar"><div class="skill-level" style="width:85%;"></div></div>
-        </div>
-        <div class="skill">
-          <div class="skill-name">Python (ML & ROS2)</div>
-          <div class="skill-bar"><div class="skill-level" style="width:80%;"></div></div>
-        </div>
-        <div class="skill">
-          <div class="skill-name">PCB Design (KiCad)</div>
-          <div class="skill-bar"><div class="skill-level" style="width:75%;"></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- LEADERSHIP -->
-  <section id="leadership" class="leadership">
-    <div class="container">
-      <h2 class="section-title">Leadership & Experience</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <h3>Team Lead, Robotics Club</h3>
-          <span>University of Turin — 2023 to Present</span>
-          <p>Led a team of 10 students in designing an autonomous robotic platform for competitions.</p>
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="electronics">Electronics</button>
+                <button class="filter-btn" data-filter="embedded">Embedded Systems</button>
+                <button class="filter-btn" data-filter="ml">Machine Learning</button>
+                <button class="filter-btn" data-filter="robotics">Robotics</button>
+            </div>
+            <div class="projects-grid">
+                <!-- Biomedical Signal Processing Internship -->
+                <div class="project-card" data-category="electronics embedded ml">
+                    <div class="project-image">
+                        <img src="placeholder-biomedical.jpg" alt="Biomedical Signal Processing Internship">
+                    </div>
+                    <div class="project-content">
+                        <h3>Biomedical Signal Processing Internship</h3>
+                        <p>Designing a complete pulse oximeter system—analog front-end, embedded firmware on STM32, real-time PPG acquisition, digital filtering, and SpO<sub>2</sub> computation using the Beer–Lambert law.</p>
+                        <div class="project-tags">
+                            <span>STM32</span>
+                            <span>FreeRTOS</span>
+                            <span>MATLAB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/MahadiAlif/biomedical-signal-processing" target="_blank" class="btn small">GitHub</a>
+                            <a href="#" class="btn small secondary">Website</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Autonomous Robotic Platform -->
+                <div class="project-card" data-category="embedded robotics">
+                    <div class="project-image">
+                        <img src="placeholder-robot-platform.jpg" alt="Autonomous Robotic Platform">
+                    </div>
+                    <div class="project-content">
+                        <h3>Autonomous Robotic Platform</h3>
+                        <p>Built STM32F4+FreeRTOS control system, interfaced IMU, motor drivers (CAN, I2C, UART), developed ROS 2 nodes for sensor fusion, achieving 2 cm positioning accuracy in dynamic settings.</p>
+                        <div class="project-tags">
+                            <span>STM32F4</span>
+                            <span>ROS 2</span>
+                            <span>CAN Bus</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/MahadiAlif/robotic-platform" target="_blank" class="btn small">GitHub</a>
+                            <a href="#" class="btn small secondary">Website</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Digital Filter Design -->
+                <div class="project-card" data-category="electronics">
+                    <div class="project-image">
+                        <img src="placeholder-filter-design.jpg" alt="Digital Filter Design">
+                    </div>
+                    <div class="project-content">
+                        <h3>Digital Filter Design</h3>
+                        <p>Designed Butterworth, Chebyshev, and FIR filters in MATLAB with poles/zeros visualization. Applied to audio signals, validated stability, phase distortion, and frequency response via FFT.</p>
+                        <div class="project-tags">
+                            <span>MATLAB</span>
+                            <span>DSP</span>
+                            <span>Filter Design</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/MahadiAlif/digital-filter-design" target="_blank" class="btn small">GitHub</a>
+                            <a href="#" class="btn small secondary">Website</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Electric Boat Control System -->
+                <div class="project-card" data-category="embedded electronics">
+                    <div class="project-image">
+                        <img src="placeholder-electric-boat.jpg" alt="Electric Boat Control System">
+                    </div>
+                    <div class="project-content">
+                        <h3>Electric Boat Control System</h3>
+                        <p>Implemented Arduino GIGA R1 firmware for sensor monitoring (temperature, current, voltage), CAN-based motor control, and ESP32‐based HTTP telemetry over WiFi.</p>
+                        <div class="project-tags">
+                            <span>Arduino</span>
+                            <span>ESP32</span>
+                            <span>CAN Bus</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/MahadiAlif/electric-boat-control" target="_blank" class="btn small">GitHub</a>
+                            <a href="#" class="btn small secondary">Website</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- CubeTech Hackathon – Space Systems -->
+                <div class="project-card" data-category="ml robotics">
+                    <div class="project-image">
+                        <img src="placeholder-cubetech.jpg" alt="CubeTech Hackathon - Space Systems Challenge">
+                    </div>
+                    <div class="project-content">
+                        <h3>CubeTech Hackathon – Space Systems</h3>
+                        <p>Built Python control and vision pipeline on Raspberry Pi Zero 2W, IMU-based timing, image segmentation for object detection under energy constraints, optimized ML for edge deployment.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Raspberry Pi</span>
+                            <span>Computer Vision</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/MahadiAlif/cubetech-hackathon" target="_blank" class="btn small">GitHub</a>
+                            <a href="#" class="btn small secondary">Website</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="timeline-item">
-          <h3>Intern, Electronics Lab</h3>
-          <span>ABC Research Center — Summer 2022</span>
-          <p>Developed sensor interfacing modules and assisted in PCB prototyping.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- EDUCATION -->
-  <section id="education" class="education">
-    <div class="container">
-      <h2 class="section-title">Education</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <h3>BSc in Electronics Engineering</h3>
-          <span>Polytechnic University of Turin — 2021 to Present</span>
-          <p>Relevant coursework: Signal Processing, Embedded Systems, Control Engineering.</p>
+    <!-- Updated Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-container">
+                <!-- Electronics -->
+                <div class="skill-category">
+                    <h3>Electronics</h3>
+                    <div class="skill-list">
+                        <div class="skill">
+                            <span>Circuit Design</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>PCB Layout</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>Signal Processing</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Embedded Systems -->
+                <div class="skill-category">
+                    <h3>Embedded Systems</h3>
+                    <div class="skill-list">
+                        <div class="skill">
+                            <span>Arduino</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>ESP32/ESP8266</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>STM32</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Programming -->
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <div class="skill-list">
+                        <div class="skill">
+                            <span>C/C++</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>Python</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>VHDL/Verilog</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ML & Robotics -->
+                <div class="skill-category">
+                    <h3>Machine Learning & Robotics</h3>
+                    <div class="skill-list">
+                        <div class="skill">
+                            <span>PyTorch</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>OpenCV</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>ROS2 Humble</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="timeline-item">
-          <h3>High School Diploma</h3>
-          <span>XYZ High School — 2018 to 2021</span>
-          <p>Specialized in Science and Mathematics.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <h2 class="section-title">Contact Me</h2>
-      <form class="contact-form" action="#" method="post">
+<!-- Tech Leadership & Involvement Section -->
+<section id="leadership" class="leadership">
+  <div class="container">
+    <h2 class="section-title">Tech Leadership & Involvement</h2>
+    <ul class="leadership-list">
+      <li class="leadership-item">
+        <h3>Politecnico di Torino</h3>
+        <p class="leadership-duration">2023 – Present</p>
+        <p class="leadership-role">Student Representative &amp; ETF College Management</p>
+        <ul class="leadership-details">
+          <li>Represent 5,000+ students in university governance</li>
+          <li>Co-developed sustainability curriculum framework</li>
+          <li>Lead campus climate action initiatives</li>
+        </ul>
+      </li>
+      <li class="leadership-item">
+        <h3>IBM</h3>
+        <p class="leadership-duration">2024 – Present</p>
+        <p class="leadership-role">IBM Z Student Ambassador</p>
+        <ul class="leadership-details">
+          <li>Promote sustainable computing practices</li>
+          <li>Organize tech-for-good hackathons</li>
+          <li>Bridge tech innovation with climate solutions</li>
+        </ul>
+      </li>
+      <li class="leadership-item">
+        <h3>Intel</h3>
+        <p class="leadership-duration">2024 – Present</p>
+        <p class="leadership-role">Intel Student Ambassador</p>
+        <ul class="leadership-details">
+          <li>Advocate Intel technologies &amp; developer tools on campus</li>
+          <li>Host IoT and FPGA workshops</li>
+          <li>Facilitate mentorship &amp; networking events</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>B.S. in Electronics Engineering</h3>
+                        <p class="timeline-date">2020 - Present</p>
+                        <p class="timeline-institution">Polytechnic University of Turin</p>
+                        <p>Specialized in Embedded Systems, Sensor Fusion, and Signal Processing.</p>
+                        <p>Relevant Coursework: Digital Signal Processing, Microcontroller Programming, PCB Design, Control Systems, Machine Learning.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Certification in Machine Learning</h3>
+                        <p class="timeline-date">2022</p>
+                        <p class="timeline-institution">Coursera</p>
+                        <p>Deep learning and computer vision applications with PyTorch and OpenCV.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>ROS2 Development Workshop</h3>
+                        <p class="timeline-date">2023</p>
+                        <p class="timeline-institution">Linux Foundation</p>
+                        <p>Hands-on ROS2 Humble: nodes, services, actions, navigation stack.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>mahadihasan.eca@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Location</h3>
+                            <p>Turin, Italy</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <h3>GitHub</h3>
+                            <p><a href="https://github.com/MahadiAlif" target="_blank">github.com/MahadiAlif</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <h3>LinkedIn</h3>
+                            <p><a href="https://linkedin.com/in/mahadi-hasan-alif" target="_blank">linkedin.com/in/mahadi-hasan-alif</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form name="contact" method="POST" data-netlify="true">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mahadi Hasan Alif. All Rights Reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/MahadiAlif" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/mahadi-hasan-alif" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
