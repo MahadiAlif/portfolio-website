@@ -606,4 +606,17 @@ footer .social-links a:hover {
 .leadership-details li {
   margin-bottom: 0.5rem;
 }
+.typed-text {
+  font-family: monospace;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.typed-text::after {
+  content: '';
+  border-right: .1em solid #000;
+  animation: blink .7s step-end infinite;
+}
+@keyframes blink {
+  50% { border-color: transparent; }
+}
 
