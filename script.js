@@ -87,3 +87,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  const text = "Hello, I'm Mahadi Hasan Alif";
+  const speed = 100;              // Delay in ms between each character
+  let index = 0;
+  function typeWriter() {
+    if (index < text.length) {
+      document.getElementById("demo").innerHTML += text.charAt(index);
+      index++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+  typeWriter();
+});
